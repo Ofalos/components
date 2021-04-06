@@ -1,3 +1,4 @@
 import OfalosInput from "./OfalosInput"
+import OfalosCheckbox from "./OfalosCheckbox"
 
-export { OfalosInput }
+export { OfalosInput, OfalosCheckbox }
