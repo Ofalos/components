@@ -1,6 +1,7 @@
 
 // Import vue components
 import * as components from '@/lib-components/index';
+import '@/assets/main.scss'
 
 // install function executed by Vue.use()
 const install = function installComponents(app) {

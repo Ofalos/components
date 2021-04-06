@@ -5,14 +5,21 @@ import { defineComponent } from 'vue';
 
 export default defineComponent({
   name: 'ServeDev',
-  // components: {
-  //  ComponentsSample,
-  // }
+  data () {
+    return {
+      x: "Abdulh"
+    }
+  }
 });
 </script>
 
 <template>
   <div id="app">
-    <components-sample />
+    <div class="mx-auto container">
+      <ofalos-input label="Full name" type="text" />
+
+    </div>
   </div>
 </template>
+<style>
+</style>
