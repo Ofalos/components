@@ -5,6 +5,9 @@ export default {
         label: String
     },
     computed: {
+        id () {
+            return this.label ? this.label.toLowerCase().replace(/[\W_]+/g,"_") : Math.ceil(Math.random() * 100000)
+        },
         dataProxy: {
             get() {
                 return this.value

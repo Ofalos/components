@@ -24,9 +24,7 @@ export default {
   },
   mixins: [form],
   computed: {
-    id () {
-      return this.label ? this.label.toLowerCase().replace(/[\W_]+/g,"_") : Math.ceil(Math.random() * 100000)
-    },
+
     wrapper () {
       if (this.floating) {
         return 'form-floating'
