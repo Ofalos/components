@@ -22,6 +22,9 @@ export default defineComponent({
       <ofalos-input label="Full name" type="text" floating :v-model="test" />
       <ofalos-checkbox>Abdulhakeem </ofalos-checkbox>
       <ofalos-checkbox label="Raliyat" />
+      <ofalos-radio label="Male" name="gender" />
+      <ofalos-radio label="Femaile" name="gender" />
+      <ofalos-radio label="Not SAy" name="gender" />
     </div>
   </div>
 </template>
