@@ -17,10 +17,9 @@
     <transition name="land">
       <div class="dropdown-menu__items" v-if="isFocussed">
         <div class="py-1" role="none">
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-             role="menuitem">Edit</a>
-          <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
-             role="menuitem">Duplicate</a>
+          <OfalosDropdownItem>Edit</OfalosDropdownItem>
+          <OfalosDropdownItem @click="handle">Delete</OfalosDropdownItem>
+          <OfalosDropdownItem href="https://dlajfdklaj.com">Duplicate</OfalosDropdownItem>
         </div>
       </div>
     </transition>
@@ -28,8 +27,10 @@
 </template>
 
 <script>
+import OfalosDropdownItem from "./OfalosDropdownItem"
 export default {
   name: "OfalosDropdown",
+  components: { OfalosDropdownItem },
   data() {
     return {
       isFocussed: false
@@ -41,6 +42,9 @@ export default {
     },
     blurred() {
       this.isFocussed = false
+    },
+    handle () {
+      console.log("handled")
     }
   }
 }
