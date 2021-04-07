@@ -17,7 +17,7 @@ export default defineComponent({
   <div id="app">
     <div class="mx-auto container">
       <pre>{{ test }}</pre>
-      <ofalos-input label="Full name" type="text" floating :v-model="test" />
+      <ofalos-input label="Full name" type="text" floating v-model="test" />
       <ofalos-checkbox>Abdulhakeem </ofalos-checkbox>
       <ofalos-checkbox label="Raliyat" />
       <ofalos-radio label="Male" name="gender" />
