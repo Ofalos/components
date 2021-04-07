@@ -3,7 +3,7 @@
     @apply transition duration-300 border shadow-sm inline-flex items-center justify-center py-2 px-3 rounded-md cursor-pointer;
 
     &:hover {
-      @apply bg-opacity-90 border-opacity-75;
+      @apply bg-opacity-80 border-opacity-75;
     }
     &:focus {
       @apply outline-none ring;
