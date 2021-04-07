@@ -3,7 +3,7 @@
     <label :for="id" :class="[ {'form-filled-label': isFocussed }, 'form-label']">{{ label }}</label>
     <input
         :id="id"
-        v-model="value"
+        v-model="dataProxy"
         :type="type"
         class="form-control"
         @focus="focused"
