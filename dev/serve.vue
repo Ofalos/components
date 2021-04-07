@@ -1,12 +1,10 @@
 <script>
 import { defineComponent } from 'vue';
-import OfalosCheckbox from "../src/lib-components/OfalosCheckbox"
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { ComponentsSample } from '@/entry.esm';
 
 export default defineComponent({
   name: 'ServeDev',
-  components: { OfalosCheckbox },
   data () {
     return {
       test: "Abdulh"
@@ -25,6 +23,10 @@ export default defineComponent({
       <ofalos-radio label="Male" name="gender" />
       <ofalos-radio label="Femaile" name="gender" />
       <ofalos-radio label="Not SAy" name="gender" />
+
+      <ofalos-select />
+
+
     </div>
   </div>
 </template>
