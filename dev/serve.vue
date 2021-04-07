@@ -2,12 +2,13 @@
 import { defineComponent } from 'vue';
 import OfalosButton from "../src/lib-components/OfalosButton"
 import OfalosDropdown from "../src/lib-components/OfalosDropdown"
+import OfalosSideNav from "../src/lib-components/sidenav/OfalosSideNav"
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { ComponentsSample } from '@/entry.esm';
 
 export default defineComponent({
   name: 'ServeDev',
-  components: { OfalosDropdown, OfalosButton },
+  components: { OfalosSideNav, OfalosDropdown, OfalosButton },
   data () {
     return {
       test: "Abdulh"
@@ -18,7 +19,10 @@ export default defineComponent({
 
 <template>
   <div id="app">
+    <ofalos-side-nav />
+
     <div class="mx-auto container">
+
       <ofalos-button role="button" >kdlfjaf</ofalos-button>
       <pre>{{ test }}</pre>
       <ofalos-input label="Full name" type="text" floating :v-model="test" />

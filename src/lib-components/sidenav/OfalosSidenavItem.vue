@@ -1,12 +1,12 @@
 <template>
-  <nav class="sidenav">
-
-  </nav>
+  <a class="sidenav__nav-item">
+    <slot></slot>
+  </a>
 </template>
 
 <script>
 export default {
-name: "OfalosSideNav"
+name: "OfalosSidenavItem"
 }
 </script>
 

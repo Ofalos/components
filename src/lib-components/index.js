@@ -6,7 +6,7 @@ import OfalosSelectOption from "./OfalosSelectOption"
 import OfalosButton from "./OfalosButton"
 import OfalosDropdown from "./OfalosDropdown"
 import OfalosDropdownItem from "./OfalosDropdownItem"
-import OfalosSideNav from "./OfalosSideNav"
+import OfalosSideNav from "./sidenav/OfalosSideNav"
 
 
 export {
