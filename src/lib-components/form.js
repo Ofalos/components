@@ -1,7 +1,7 @@
 export default {
 
     props: {
-        value: { required: true },
+        modelValue: { required: true },
         label: String
     },
     computed: {
@@ -10,16 +10,16 @@ export default {
         },
         dataProxy: {
             get() {
-                return this.value
+                return this.modelValue
             },
-            set(value) {
-                this.$emit('input', value)
+            set(modelValue) {
+                this.$emit('update:modelValue', modelValue)
             }
         }
     },
     data() {
         return {
-            isFocussed: this.value?.length,
+            isFocussed: this.modelValue?.length,
         }
     },
     methods: {
@@ -27,8 +27,8 @@ export default {
             this.isFocussed = true
             this.$emit('focus')
         },
-        blurred(el) {
-            this.isFocussed = el.target.value?.length > 0 || false
+        blurred() {
+            this.isFocussed = this.modelValue?.length > 0 || false
             this.$emit('blur')
         }
     }
