@@ -18,7 +18,7 @@ export default defineComponent({
 <template>
   <div id="app">
     <div class="mx-auto container">
-      <ofalos-button>kdlfjaf</ofalos-button>
+      <ofalos-button role="button" >kdlfjaf</ofalos-button>
       <pre>{{ test }}</pre>
       <ofalos-input label="Full name" type="text" floating :v-model="test" />
       <ofalos-checkbox>Abdulhakeem </ofalos-checkbox>
