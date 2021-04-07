@@ -26,23 +26,19 @@
 
           Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
         -->
-        <li class="form-select-option" role="option">
-          Nigeria
-        </li>
-        <li class="form-select-option" role="option">
+        <OfalosSelectOption>
           Ghana
-        </li>
-        <li class="form-select-option" role="option">
+        </OfalosSelectOption>
+        <OfalosSelectOption>
           Ivory Coast
-        </li>
-        <li class="form-select-option selected" role="option">
+        </OfalosSelectOption>
+        <OfalosSelectOption>
           Cameroon
-        </li>
-        <li class="form-select-option" role="option">
+        </OfalosSelectOption>
+        <OfalosSelectOption selected>
           Gambia
-        </li>
+        </OfalosSelectOption>
 
-        <!-- More items... -->
       </ul>
     </button>
   </div>
@@ -62,7 +58,17 @@ export default {
       type: Array
     }
   },
-  methods: {}
+  methods: {
+    selected(value) {
+      this.val = value
+    }
+  },
+  data () {
+    return {
+      val: ''
+    }
+  },
+
 }
 </script>
 
