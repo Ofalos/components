@@ -4,7 +4,7 @@
     background-image: url("../../assets/icons/chevron-down.svg");
     background-size: 18px;
     background-position: center right 0.6em;
-    @apply w-full border shadow-sm py-2 px-3 pr-8 rounded-md appearance-none placeholder-gray-500 bg-no-repeat bg-white;
+    @apply relative w-full border shadow-sm py-2 px-3 rounded-md appearance-none placeholder-gray-500 bg-no-repeat bg-white;
 
     &:focus {
       @apply outline-none ring;
@@ -14,12 +14,31 @@
       @apply bg-gray-100 cursor-not-allowed;
     }
 
-    option[selected] {
-      background-image: url("../../assets/icons/checkbox.svg");
-      background-size: 18px;
-      background-position: center left 0.6em;
-      @apply bg-blue-300;
+    .form-select-options {
+      @apply absolute text-left top-10 left-0 w-full bg-white shadow-lg max-h-56 rounded-md py-1;
+
+      .form-select-option {
+        @apply text-gray-900 cursor-default select-none relative py-2 pl-3 pr-9;
+
+        &:hover {
+          @apply bg-blue-700 text-gray-100;
+
+          &.selected {
+            background-image: url("../../assets/icons/checkbox.svg");
+          }
+
+        }
+
+        &.selected {
+          background-image: url("../../assets/icons/check-dark.svg");
+          background-size: 18px;
+          background-position: center right 0.6em;
+          @apply relative appearance-none bg-no-repeat ;
+
+        }
+      }
     }
+
   }
 
   // Default Sizes
