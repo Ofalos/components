@@ -1,0 +1,8 @@
+.land-enter-from,
+.land-leave-to {
+  @apply -mt-2 duration-0;
+}
+
+.land-enter-active {
+  @apply transition-spacing ease-in-out duration-200
+}

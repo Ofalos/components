@@ -1,12 +1,13 @@
 <script>
 import { defineComponent } from 'vue';
 import OfalosButton from "../src/lib-components/OfalosButton"
+import OfalosDropdown from "../src/lib-components/OfalosDropdown"
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { ComponentsSample } from '@/entry.esm';
 
 export default defineComponent({
   name: 'ServeDev',
-  components: { OfalosButton },
+  components: { OfalosDropdown, OfalosButton },
   data () {
     return {
       test: "Abdulh"
@@ -28,6 +29,8 @@ export default defineComponent({
       <ofalos-radio label="Not SAy" name="gender" />
       <ofalos-select />
 
+      Dropdown
+      <ofalos-dropdown />
 
     </div>
   </div>
