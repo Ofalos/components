@@ -1,0 +1,6 @@
+@layer components {
+  .header {
+    @apply w-screen px-3 fixed py-2 flex align-middle gap-2 bg-white shadow-sm ;
+
+  }
+}

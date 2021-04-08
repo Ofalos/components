@@ -8,6 +8,7 @@
         class="form-control"
         @focus="focused"
         @blur="blurred"
+        v-bind="$attrs"
     />
   </div>
 </template>
