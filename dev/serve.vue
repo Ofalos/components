@@ -7,7 +7,11 @@ export default defineComponent({
   name: 'ServeDev',
   data () {
     return {
-      test: "Abdulh"
+      test: "Abdulh",
+      checkedNames: [],
+      options: ["Kano", "Abuja", "Niger"],
+      selectedOptions: null,
+      radioVal: null
     }
   }
 });
@@ -15,17 +19,29 @@ export default defineComponent({
 
 <template>
   <div id="app">
+    <input type="checkbox" id="jack" value="Jack" v-model="checkedNames">
+<label for="jack">Jack</label>
+<input type="checkbox" id="john" value="John" v-model="checkedNames">
+<label for="john">John</label>
+<input type="checkbox" id="mike" value="Mike" v-model="checkedNames">
+<label for="mike">Mike</label>
+<br>
+<span>Checked names: {{ checkedNames }}</span>
     <div class="mx-auto container">
       <pre>{{ test }}</pre>
       <ofalos-input label="Full name" type="text" floating v-model="test" />
-      <ofalos-checkbox>Abdulhakeem </ofalos-checkbox>
-      <ofalos-checkbox label="Raliyat" />
-      <ofalos-radio label="Male" name="gender" />
-      <ofalos-radio label="Femaile" name="gender" />
-      <ofalos-radio label="Not SAy" name="gender" />
+      <pre> {{checkedNames}} </pre>
+      <ofalos-checkbox v-model:checkedOption="checkedNames">Abdulhakeem</ofalos-checkbox>
+      <ofalos-checkbox v-model:checkedOption="checkedNames" value="Mus'ab" />
+      <ofalos-checkbox v-model:checkedOption="checkedNames" label="Raliyat" />
 
-      <ofalos-select />
+      {{radioVal}}
+      <ofalos-radio v-model:radio="radioVal" label="Male" name="gender" />
 
+      <ofalos-radio v-model:radio="radioVal" label="Femaile" name="gender" />
+      <ofalos-radio v-model:radio="radioVal" label="Not SAy" name="gender" />
+      {{selectedOptions}} in serve
+      <ofalos-select v-model:selected="selectedOptions" :options="options" multiple  />
 
     </div>
   </div>
