@@ -1,5 +1,5 @@
 <template>
-  <li :class="['form-select-option', {selected: isSelected}]" role="option" @click="handleSelect">
+  <li :class="['form-select-option']" role="option" @click="handleSelect">
     <slot>
       {{ value }}
     </slot>
@@ -10,12 +10,11 @@
 export default {
   name: "OfalosSelectOption",
   props: {
-    value: String,
-    selected: [String, Boolean]
+    value: String
   },
   computed: {
     isSelected () {
-      return ["", true].includes(this.selected)
+      return ["", "true", true].includes(this.selected)
     },
     val () {
       if (this.value) {
@@ -26,8 +25,8 @@ export default {
     }
   },
   methods: {
-    handleSelect () {
-      this.$emit('selected', this.val)
+    handleSelect (e) {
+      this.$emit('selected', this.value, e)
     }
   }
 }
