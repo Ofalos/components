@@ -1,7 +1,7 @@
 export default {
 
     props: {
-        modelValue: { required: true },
+        modelValue: [String, Number],
         label: String
     },
     computed: {
