@@ -1,0 +1,27 @@
+@layer components {
+  .table {
+    @apply w-full text-left;
+
+    th {
+      @apply font-medium px-3 py-2 border border-gray-600 text-gray-800;
+    }
+    td {
+      @apply px-3 py-2 text-sm border border-gray-600 text-gray-800;
+    }
+
+    &.table--sm {
+      th {
+        @apply px-3 py-2 text-sm;
+      }
+      td {
+        @apply px-3 py-2 text-xs;
+      }
+    }
+
+    &.table--striped {
+      :not(thead) tr:nth-child(2n + 1) {
+        @apply bg-gray-100
+      }
+    }
+  }
+}

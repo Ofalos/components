@@ -4,12 +4,13 @@ import OfalosButton from "../src/lib-components/OfalosButton"
 import OfalosDropdown from "../src/lib-components/OfalosDropdown"
 import OfalosSideNav from "../src/lib-components/sidenav/OfalosSideNav"
 import OfalosHeader from "../src/lib-components/OfalosHeader"
+import OfalosTable from "../src/lib-components/table/OfalosTable"
 // Uncomment import and local "components" registration if library is not registered globally.
 // import { ComponentsSample } from '@/entry.esm';
 
 export default defineComponent({
   name: 'ServeDev',
-  components: { OfalosHeader, OfalosSideNav, OfalosDropdown, OfalosButton },
+  components: { OfalosTable, OfalosHeader, OfalosSideNav, OfalosDropdown, OfalosButton },
   data () {
     return {
       test: "Abdulh"
@@ -21,9 +22,8 @@ export default defineComponent({
 <template>
   <div id="app">
 <!--    <ofalos-side-nav />-->
-    <ofalos-header></ofalos-header>
-    <div class="block h-screen"></div>
-    <div class="mx-auto h-screen container py-5">
+    <div class="mx-auto container py-5">
+      <ofalos-table></ofalos-table>
 
 <!--      <ofalos-button role="button" >kdlfjaf</ofalos-button>-->
       <ofalos-input label="Full name" type="text" floating :v-model="test" disabled />
