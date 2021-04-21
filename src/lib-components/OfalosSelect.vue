@@ -6,7 +6,7 @@
     <button :for="id" class="form-select" @focus="focused" @blur="blurred">
       <span class="flex items-center">
         <span class="block truncate">
-          {{ isMultiple ? multipleValues : selectedValue || "-" }}
+          {{ isMultiple ? computedMultiple.toString() : selectedValue || "-" }}
         </span>
       </span>
 
@@ -65,11 +65,11 @@ export default {
     multiple: [String, Boolean],
   },
   computed: {
+    computedMultiple() {
+      return this.multipleValues.length > 0 ? this.multipleValues : "-"
+    }, 
     isMultiple() {
       return ["", "true", true].includes(this.multiple);
-    },
-    returnValue() {
-      this.isMultiple ? this.multipleValues : this.selectedValue
     }
   },
   methods: {
