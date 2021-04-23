@@ -54,7 +54,7 @@ export default {
           e.target.classList.add("selected")
           this.multipleValues.push(value);
         }
-        this.$emit("update:selected", this.multipleValues)
+        this.$emit("update:modelValue", this.multipleValues)
       }
       else {
         document.querySelectorAll(".form-select-option").forEach(el=>{
@@ -67,7 +67,7 @@ export default {
           e.target.classList.remove("selected")
           this.selectedValue = null
         }
-        this.$emit("update:selected", this.selectedValue)
+        this.$emit("update:modelValue", this.selectedValue)
       }
     },
   },
