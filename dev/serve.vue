@@ -44,7 +44,7 @@ export default defineComponent({
       <ofalos-radio v-model="state" label="Lagos" name="genders" />
 
       {{selectedOptions}}
-      <ofalos-select v-model="selectedOptions" :options="states"  />
+      <ofalos-select v-model="selectedOptions" :options="options"  />
 
       {{agreed}}
       <ofalos-checkbox v-model="agreed" value="I agree to subscribe for ads" /> 
