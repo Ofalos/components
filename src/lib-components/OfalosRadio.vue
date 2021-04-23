@@ -4,10 +4,10 @@
       <slot>{{ label }}</slot></label>
     <input
         :id="id"
-        v-model="dataProxy"
         class="form-check-input mr-3 order-first"
         v-bind="$attrs"
         type="radio"
+        @change="radioValUpdate"
     />
   </div>
 
@@ -15,10 +15,15 @@
 
 <script>
 import form from "./form"
-
+ 
 export default {
   name: "OfalosCheckbox",
-  mixins: [form]
+  mixins: [form],
+  methods: {
+    radioValUpdate(e) {
+      this.$emit("update:modelValue", this.val)
+    }
+  }
 }
 </script>
 
