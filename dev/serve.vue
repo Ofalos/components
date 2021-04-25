@@ -37,9 +37,11 @@ export default defineComponent({
     <div class="mx-auto h-screen container py-5">
 <!--      <ofalos-button role="button" >kdlfjaf</ofalos-button>-->
       <ofalos-input label="Full name" type="text" floating :v-model="test" disabled />
-      <!-- <ofalos-dropdown ></ofalos-dropdown> -->
-      <ofalos-select v-model:item="myItem" :items="items"></ofalos-select>
+      
+      <!-- <ofalos-select v-model:item="myItem" :items="items"></ofalos-select> -->
       items-{{myItem}}
+
+      <ofalos-dropdown :items="items"></ofalos-dropdown>
 <!--      <ofalos-checkbox>Abdulhakeem </ofalos-checkbox>-->
 <!--      <ofalos-checkbox label="Raliyat" />-->
 <!--      <ofalos-radio label="Male" name="gender" />-->

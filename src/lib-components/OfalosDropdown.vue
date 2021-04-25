@@ -1,107 +1,82 @@
 <template>
-  <div class="w-72">
-    <Listbox v-model="selectedPerson" >
-      <div class="relative mt-1">
-        <ListboxButton
-          class="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
+  <div class="w-56 text-right">
+    <Menu as="div" class="relative inline-block text-left">
+      <div>
+        <MenuButton
+          class="inline-flex justify-center w-full px-4 py-2 text-sm font-medium text-white bg-black rounded-md bg-opacity-20 hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
         >
-          <span class="block truncate">{{ selectedItem.name }}</span>
-          <span
-            class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
-          >
-            <!-- <SelectorIcon class="w-5 h-5 text-gray-400" aria-hidden="true" /> -->
-          </span>
-        </ListboxButton>
+          Options
+        </MenuButton>
+      </div>
 
-        <transition
-          leave-active-class="transition duration-100 ease-in"
-          leave-from-class="opacity-100"
-          leave-to-class="opacity-0"
+      <transition
+        enter-active-class="transition duration-100 ease-out"
+        enter-from-class="transform scale-95 opacity-0"
+        enter-to-class="transform scale-100 opacity-100"
+        leave-active-class="transition duration-75 ease-in"
+        leave-from-class="transform scale-100 opacity-100"
+        leave-to-class="transform scale-95 opacity-0"
+      >
+        <MenuItems
+          class="absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
         >
-          <ListboxOptions
-            class="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
-          >
-            <ListboxOption
-              v-slot="{ active, selected }"
-              v-for="item in items"
-              :key="item"
-              :value="item"
-              as="template"
-              @blur="updateChange"
-            >
-              <li
+          <div class="px-1 py-1">
+            <MenuItem v-for="(item, key) in items" :key="key" v-slot="{ active }">
+              <button
+                @click="handleClick(item)"
                 :class="[
-                  active ? 'text-amber-900 bg-amber-100' : 'text-gray-900',
-                  'cursor-default select-none relative py-2 pl-10 pr-4',
+                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                  'group flex rounded-md items-center w-full px-2 py-2 text-sm',
                 ]"
               >
-                <span
-                  :class="[
-                    selected ? 'font-medium' : 'font-normal',
-                    'block truncate',
-                  ]"
-                  >{{ item.name }}</span
-                >
-                <span
-                  v-if="selected"
-                  class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
-                >
-                  <!-- <CheckIcon class="w-5 h-5" aria-hidden="true" /> -->
-                </span>
-              </li>
-            </ListboxOption>
-          </ListboxOptions>
-        </transition>
-      </div>
-    </Listbox>
+              {{item.name}}
+              </button>
+            </MenuItem>
+          </div>
+
+          <div class="px-1 py-1">
+          </div>
+        </MenuItems>
+      </transition>
+    </Menu>
   </div>
 </template>
 
 <script>
-import { ref } from "vue";
-import {
-  Listbox,
-  ListboxLabel,
-  ListboxButton,
-  ListboxOptions,
-  ListboxOption,
-} from "@headlessui/vue";
-// import { CheckIcon, SelectorIcon } from "@heroicons/vue/solid";
+import { Menu, MenuButton, MenuItems, MenuItem } from "@headlessui/vue";
+// import { ChevronDownIcon } from "@heroicons/vue/solid";
+// import ArchiveIcon from "./archive-icon.vue";
+// import DuplicateIcon from "./duplicate-icon.vue";
+// import MoveIcon from "./move-icon.vue";
+// import EditIcon from "./edit-icon.vue";
+// import DeleteIcon from "./delete-icon.vue";
 
 export default {
   components: {
-    Listbox,
-    ListboxLabel,
-    ListboxButton,
-    ListboxOptions,
-    ListboxOption,
-    // CheckIcon,
-    // SelectorIcon,
+    Menu,
+    MenuButton,
+    MenuItems,
+    MenuItem,
+    // ChevronDownIcon,
+    // ArchiveIcon,
+    // DuplicateIcon,
+    // MoveIcon,
+    // EditIcon,
+    // DeleteIcon,
   },
-
   props: {
-    item: {
-      type: String,
-      default: ''
-    },
     items: {
       type: Array,
       default: []
-    }
-  },
-  setup(props, { emit }) {
-    const selectedItem = ref(props.items[0]);
-    const updateChange = event =>{
-      console.log(event.target.children[0].textContent);
-      let val = event.target.children[0].textContent;
-      emit('update:item', val)
     } 
-
-    return {
-      // people,
-      selectedItem,
-      updateChange
-    };
   },
+  setup(){
+    const handleClick = (item)=> {
+      //do something with path
+      console.log(item)    
+    }
+    return { handleClick }
+  }
+
 };
 </script>
