@@ -1,77 +1,107 @@
 <template>
-  <div>
-    <label :for="id" class="block text-sm font-medium text-gray-700">
-      {{ label }}
-    </label>
-    <button :for="id" class="form-select" @focus="focused" @blur="blurred">
-      <span class="flex items-center">
-        <span class="block truncate">
-          Cameroon
-        </span>
-      </span>
+  <div class="w-72">
+    <Listbox v-model="selectedPerson" >
+      <div class="relative mt-1">
+        <ListboxButton
+          class="relative w-full py-2 pl-3 pr-10 text-left bg-white rounded-lg shadow-md cursor-default focus:outline-none focus-visible:ring-2 focus-visible:ring-opacity-75 focus-visible:ring-white focus-visible:ring-offset-orange-300 focus-visible:ring-offset-2 focus-visible:border-indigo-500 sm:text-sm"
+        >
+          <span class="block truncate">{{ selectedItem.name }}</span>
+          <span
+            class="absolute inset-y-0 right-0 flex items-center pr-2 pointer-events-none"
+          >
+            <!-- <SelectorIcon class="w-5 h-5 text-gray-400" aria-hidden="true" /> -->
+          </span>
+        </ListboxButton>
 
-      <!--
-        Select popover, show/hide based on select state.
-
-        Entering: ""
-          From: ""
-          To: ""
-        Leaving: "transition ease-in duration-100"
-          From: "opacity-100"
-          To: "opacity-0"
-      -->
-      <ul :class="['form-select-options']" role="listbox" v-show="isFocussed">
-        <!--
-          Select option, manage highlight styles based on mouseenter/mouseleave and keyboard navigation.
-
-          Highlighted: "text-white bg-indigo-600", Not Highlighted: "text-gray-900"
-        -->
-        <OfalosSelectOption>
-          Ghana
-        </OfalosSelectOption>
-        <OfalosSelectOption>
-          Ivory Coast
-        </OfalosSelectOption>
-        <OfalosSelectOption>
-          Cameroon
-        </OfalosSelectOption>
-        <OfalosSelectOption selected>
-          Gambia
-        </OfalosSelectOption>
-
-      </ul>
-    </button>
+        <transition
+          leave-active-class="transition duration-100 ease-in"
+          leave-from-class="opacity-100"
+          leave-to-class="opacity-0"
+        >
+          <ListboxOptions
+            class="absolute w-full py-1 mt-1 overflow-auto text-base bg-white rounded-md shadow-lg max-h-60 ring-1 ring-black ring-opacity-5 focus:outline-none sm:text-sm"
+          >
+            <ListboxOption
+              v-slot="{ active, selected }"
+              v-for="item in items"
+              :key="item"
+              :value="item"
+              as="template"
+              @blur="updateChange"
+            >
+              <li
+                :class="[
+                  active ? 'text-amber-900 bg-amber-100' : 'text-gray-900',
+                  'cursor-default select-none relative py-2 pl-10 pr-4',
+                ]"
+              >
+                <span
+                  :class="[
+                    selected ? 'font-medium' : 'font-normal',
+                    'block truncate',
+                  ]"
+                  >{{ item.name }}</span
+                >
+                <span
+                  v-if="selected"
+                  class="absolute inset-y-0 left-0 flex items-center pl-3 text-amber-600"
+                >
+                  <!-- <CheckIcon class="w-5 h-5" aria-hidden="true" /> -->
+                </span>
+              </li>
+            </ListboxOption>
+          </ListboxOptions>
+        </transition>
+      </div>
+    </Listbox>
   </div>
-
 </template>
 
 <script>
-import form from "./form"
-import OfalosSelectOption from "./OfalosSelectOption"
+import { ref } from "vue";
+import {
+  Listbox,
+  ListboxLabel,
+  ListboxButton,
+  ListboxOptions,
+  ListboxOption,
+} from "@headlessui/vue";
+// import { CheckIcon, SelectorIcon } from "@heroicons/vue/solid";
 
 export default {
-  name: "OfalosSelect",
-  components: { OfalosSelectOption },
-  mixins: [form],
+  components: {
+    Listbox,
+    ListboxLabel,
+    ListboxButton,
+    ListboxOptions,
+    ListboxOption,
+    // CheckIcon,
+    // SelectorIcon,
+  },
+
   props: {
-    options: {
-      type: Array
+    item: {
+      type: String,
+      default: ''
+    },
+    items: {
+      type: Array,
+      default: []
     }
   },
-  methods: {
-    selected(value) {
-      this.val = value
-    }
-  },
-  data () {
+  setup(props, { emit }) {
+    const selectedItem = ref(props.items[0]);
+    const updateChange = event =>{
+      // console.log(event.target.children[0].textContent);
+      let val = event.target.children[0].textContent;
+      emit('update:item', val)
+    } 
+
     return {
-      val: ''
-    }
+      // people,
+      selectedItem,
+      updateChange
+    };
   },
-
-}
+};
 </script>
-
-<style scoped>
-
-</style>

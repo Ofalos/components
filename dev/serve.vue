@@ -1,6 +1,6 @@
 <script>
 import { defineComponent } from 'vue';
-import OfalosButton from "../src/lib-components/OfalosButton"
+import OfalosSelect from "../src/lib-components/OfalosSelect"
 import OfalosDropdown from "../src/lib-components/OfalosDropdown"
 import OfalosSideNav from "../src/lib-components/sidenav/OfalosSideNav"
 import OfalosHeader from "../src/lib-components/OfalosHeader"
@@ -10,7 +10,7 @@ import OfalosRadio from '../src/lib-components/OfalosRadio.vue';
 
 export default defineComponent({
   name: 'ServeDev',
-  components: { OfalosHeader, OfalosSideNav, OfalosDropdown, OfalosRadio},
+  components: { OfalosHeader, OfalosSelect, OfalosDropdown, OfalosRadio},
   data () {
     return {
       myItem: '',
@@ -37,7 +37,8 @@ export default defineComponent({
     <div class="mx-auto h-screen container py-5">
 <!--      <ofalos-button role="button" >kdlfjaf</ofalos-button>-->
       <ofalos-input label="Full name" type="text" floating :v-model="test" disabled />
-      <ofalos-dropdown v-model:item="myItem" :items="items"></ofalos-dropdown>
+      <!-- <ofalos-dropdown ></ofalos-dropdown> -->
+      <ofalos-select v-model:item="myItem" :items="items"></ofalos-select>
       items-{{myItem}}
 <!--      <ofalos-checkbox>Abdulhakeem </ofalos-checkbox>-->
 <!--      <ofalos-checkbox label="Raliyat" />-->
