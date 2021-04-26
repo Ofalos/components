@@ -2,7 +2,7 @@
 import { defineComponent } from 'vue';
 import OfalosSelect from "../src/lib-components/OfalosSelect"
 import OfalosDropdown from "../src/lib-components/OfalosDropdown"
-import OfalosSideNav from "../src/lib-components/sidenav/OfalosSideNav"
+import OfalosModal from "../src/lib-components/OfalosModal"
 import OfalosHeader from "../src/lib-components/OfalosHeader"
 import OfalosRadio from '../src/lib-components/OfalosRadio.vue';
 // Uncomment import and local "components" registration if library is not registered globally.
@@ -10,7 +10,7 @@ import OfalosRadio from '../src/lib-components/OfalosRadio.vue';
 
 export default defineComponent({
   name: 'ServeDev',
-  components: { OfalosHeader, OfalosSelect, OfalosDropdown, OfalosRadio},
+  components: { OfalosHeader, OfalosSelect, OfalosDropdown, OfalosRadio, OfalosModal, OfalosModal, OfalosModal},
   data () {
     return {
       myItem: '',
@@ -42,6 +42,7 @@ export default defineComponent({
       items-{{myItem}}
 
       <ofalos-dropdown :items="items"></ofalos-dropdown>
+      <ofalos-modal></ofalos-modal>
 <!--      <ofalos-checkbox>Abdulhakeem </ofalos-checkbox>-->
 <!--      <ofalos-checkbox label="Raliyat" />-->
 <!--      <ofalos-radio label="Male" name="gender" />-->

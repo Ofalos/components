@@ -72,7 +72,7 @@ export default {
   },
   setup(){
     const handleClick = (item)=> {
-      //do something with path
+      //do something with or go to a route
       console.log(item)    
     }
     return { handleClick }
